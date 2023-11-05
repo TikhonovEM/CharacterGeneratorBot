@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,16 @@ namespace CharacterGeneratorBot.MorkBorg
 
             if (character.Health.HasValue)
                 sb.AppendFormat("*Очки здоровья:* {0}{1}{1}", character.Health.Value, Environment.NewLine);
+
+            #region STUB
+
+            var r = new Random();
+            var money = (r.Next(1, 6) + r.Next(1, 6)) * 10;
+            sb.AppendFormat("*Серебро:* {0}{1}{1}", money, Environment.NewLine);
+
+            var foodCount = r.Next(1, 4);
+            sb.AppendFormat("*Запас еды на {0} дня* {1}{1}", foodCount, Environment.NewLine);
+            #endregion
 
             if (character.Description != null && character.Description.Any())
             {
